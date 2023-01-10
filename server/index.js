@@ -2,54 +2,64 @@ export const files = [
   {
     id: "10000",
     isDir: false,
-    name: "layer1a.js",
+    name: "package.json",
   },
   {
     id: "10001",
     isDir: false,
-    name: "layer1b.css",
+    name: "README.md",
   },
   {
     id: "10002",
     isDir: true,
-    name: "layer1b.ts",
+    name: "src",
     files: [
       {
         id: "11000",
         isDir: false,
-        name: "layer2a.js",
+        name: "index.js",
       },
       {
         id: "11001",
         isDir: false,
-        name: "layer2b.css",
+        name: "header.js",
+      },
+      {
+        id: "11002",
+        isDir: false,
+        name: "footer.js",
+      },
+      {
+        id: "11003",
+        isDir: false,
+        name: "content.js",
       },
       {
         id: "11101",
         isDir: true,
-        name: "layer2c.css",
+        name: "assets",
         files: [
           {
             id: "11100",
             isDir: true,
-            name: "layer3a.js",
+            name: "images",
             files: [
               {
                 id: "11100",
                 isDir: true,
-                name: "layer4a.js",
+                name: "home",
               },
               {
                 id: "11101",
                 isDir: false,
-                name: "layer4b.css",
+                name: "user.webp",
               },
             ],
           },
           {
             id: "11101",
             isDir: false,
-            name: "layer3b.css",
+            name: "banner.svg",
           },
         ],
       },

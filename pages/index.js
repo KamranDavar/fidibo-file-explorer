@@ -1,37 +1,19 @@
-import React from 'react'
-import { Row } from '../components/Row'
-import { files } from '../server/index'
-export const RightClickContext = React.createContext(null)
+import React from "react";
+import { Row } from "../components/Row";
+import useRightClick from "../hooks/useRightClick";
+import { files } from "../server/index";
+
+export const RightClickContext = React.createContext(null);
 
 export default function Home() {
-  const [context, setContext] = React.useState(false)
-  const [isDirectory, setisDirectory] = React.useState(null)
-  const [xYPosistion, setXyPosistion] = React.useState({ x: 0, y: 0 })
-
-  const showNav = (event, isDir) => {
-    event.preventDefault()
-    setContext(false)
-    const positionChange = {
-      x: event.pageX,
-      y: event.pageY,
-    }
-    setXyPosistion(positionChange)
-    setContext(true)
-    setisDirectory(isDir)
-  }
-
-  const hideContext = () => {
-    setContext(false)
-  }
+  const rightClick = useRightClick();
 
   return (
     <>
-      <RightClickContext.Provider
-        value={{ showNav, context, xYPosistion, isDirectory }}
-      >
+      <RightClickContext.Provider value={rightClick}>
         <ul
-          onClick={hideContext}
-          className="list-none pl-5 divide-slate-300 border-solid"
+          onClick={rightClick.hideContext}
+          className="list-none pl-5 divide-slate-300 border-solid cursor-pointer w-1/4 border min-h-screen"
         >
           {files.map((item) => (
             <Row key={item.id} data={item} />
@@ -39,5 +21,5 @@ export default function Home() {
         </ul>
       </RightClickContext.Provider>
     </>
-  )
+  );
 }

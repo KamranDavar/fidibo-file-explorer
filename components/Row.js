@@ -1,24 +1,24 @@
-import React, { useContext, useState } from 'react'
-import { RightClickContext } from '../pages'
-import { AiOutlineRight } from 'react-icons/ai'
-import { AiOutlineDown } from 'react-icons/ai'
+import React, { useContext, useState } from "react";
+import { RightClickContext } from "../pages";
+import { AiOutlineRight } from "react-icons/ai";
+import { AiFillFile } from "react-icons/ai";
+import { AiOutlineDown } from "react-icons/ai";
 
 export const Row = ({ data }) => {
-  const [open, setOpen] = useState(false)
-  const { showNav, context, xYPosistion, isDirectory } = useContext(
-    RightClickContext,
-  )
+  const [open, setOpen] = useState(false);
+  const { showNav, context, xYPosistion, isDirectory } =
+    useContext(RightClickContext);
 
   const renderIcon = (isDir, open) => {
-    return !isDir ? <></> : !open ? <AiOutlineRight /> : <AiOutlineDown />
-  }
+    return !isDir ? <AiFillFile/> : !open ? <AiOutlineRight /> : <AiOutlineDown />;
+  };
 
   return (
     <li>
       <div
         onClick={() => setOpen(!open)}
         onContextMenu={(e) => showNav(e, data.isDir)}
-        className='flex items-center'
+        className="flex items-center"
       >
         <span>{renderIcon(data.isDir, open)}</span>
 
@@ -47,5 +47,5 @@ export const Row = ({ data }) => {
         </div>
       )}
     </li>
-  )
-}
+  );
+};

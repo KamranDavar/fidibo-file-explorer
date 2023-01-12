@@ -1,12 +1,15 @@
 import React from "react";
 import { Row } from "../components/Row";
-import useRightClick from "../hooks/useRightClick";
-import { files } from "../server/index";
+import { useGetFiles } from "../logics/hooks/useGetFiles";
+import useRightClick from "../logics/hooks/useRightClick";
+
 
 export const RightClickContext = React.createContext(null);
 
 export default function Home() {
   const rightClick = useRightClick();
+  const {data,loading}= useGetFiles()
+
 
   return (
     <>
@@ -15,7 +18,7 @@ export default function Home() {
           onClick={rightClick.hideContext}
           className="list-none pl-5 divide-slate-300 border-solid cursor-pointer w-1/4 border min-h-screen"
         >
-          {files.map((item) => (
+          {data?.map((item) => (
             <Row key={item.id} data={item} />
           ))}
         </ul>

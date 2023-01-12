@@ -1,8 +1,70 @@
 {
-  "dirs": [
-    { "id": 1000, "isDir": true, "name": "comment1", "dirId": 0 },
-    { "id": 1001, "isDir": true, "name": "comment1-1", "dirId": 1000 },
-    { "id": 1002, "isDir": true, "name": "comment1-2", "dirId": 1000 },
-    { "id": 1003, "isDir": true, "name": "comment2", "dirId": 0 }
+  "files": [
+    {
+      "id": "1",
+      "isDirectory": true,
+      "name": "file1",
+      "fileId": ""
+    },
+    {
+      "id": "2",
+      "isDirectory": true,
+      "name": "file2",
+      "fileId": "1"
+    },
+    {
+      "id": "3",
+      "isDirectory": true,
+      "name": "file3",
+      "fileId": ""
+    },
+    {
+      "id": "4",
+      "isDirectory": false,
+      "name": "hello.txt",
+      "fileId": "1"
+    },
+    {
+      "id": "5",
+      "isDirectory": false,
+      "name": "index.html",
+      "fileId": "2"
+    },
+    {
+      "id": "6",
+      "isDirectory": false,
+      "name": "about.html",
+      "fileId": "2"
+    },
+    {
+      "isDirectory": false,
+      "name": "contact.html",
+      "fileId": "2",
+      "id": "7"
+    },
+    {
+      "isDirectory": false,
+      "name": "contact2.html",
+      "fileId": "2",
+      "id": "hZ0wGQD"
+    },
+    {
+      "isDirectory": false,
+      "name": "contact3.html",
+      "fileId": "2",
+      "id": "rwniGzM"
+    },
+    {
+      "isDirectory": false,
+      "name": "about.html",
+      "fileId": "2",
+      "id": "DFR5qEo"
+    },
+    {
+      "isDirectory": false,
+      "name": "products.js",
+      "fileId": "2",
+      "id": "MQCkf7S"
+    }
   ]
 }

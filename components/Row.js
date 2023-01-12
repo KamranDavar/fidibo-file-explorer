@@ -3,30 +3,38 @@ import { RightClickContext } from "../pages";
 import { AiOutlineRight } from "react-icons/ai";
 import { AiFillFile } from "react-icons/ai";
 import { AiOutlineDown } from "react-icons/ai";
+import { useGetFiles } from "../logics/hooks/useGetFiles";
 
 export const Row = ({ data }) => {
   const [open, setOpen] = useState(false);
   const { showNav, context, xYPosistion, isDirectory } =
     useContext(RightClickContext);
+  const { data: rowData } = useGetFiles(data.id);
 
   const renderIcon = (isDir, open) => {
-    return !isDir ? <AiFillFile/> : !open ? <AiOutlineRight /> : <AiOutlineDown />;
+    return !isDir ? (
+      <AiFillFile />
+    ) : !open ? (
+      <AiOutlineRight />
+    ) : (
+      <AiOutlineDown />
+    );
   };
 
   return (
     <li>
       <div
         onClick={() => setOpen(!open)}
-        onContextMenu={(e) => showNav(e, data.isDir)}
+        onContextMenu={(e) => showNav(e, data.isDirectory)}
         className="flex items-center"
       >
-        <span>{renderIcon(data.isDir, open)}</span>
+        <span>{renderIcon(data.isDirectory, open)}</span>
 
         {data.name}
       </div>
-      {data.isDir && open && (
+      {data.isDirectory && open && (
         <ul className="pl-5 ml-2 border-l divide-slate-300 border-solid">
-          {data.files?.map((file) => (
+          {rowData[0].files?.map((file) => (
             <Row key={file.id} data={file} />
           ))}
         </ul>

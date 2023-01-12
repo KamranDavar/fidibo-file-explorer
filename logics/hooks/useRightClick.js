@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const useRightClick = () => {
   const [context, setContext] = useState(false);
-  const [isDirectory, setisDirectory] = useState(null);
+  const [isDirectory, setIsDirectory] = useState(null);
   const [xYPosistion, setXyPosistion] = useState({ x: 0, y: 0 });
 
   const showNav = (event, isDir) => {
@@ -14,7 +14,7 @@ const useRightClick = () => {
     };
     setXyPosistion(positionChange);
     setContext(true);
-    setisDirectory(isDir);
+    setIsDirectory(isDir);
   };
 
   const hideContext = () => {

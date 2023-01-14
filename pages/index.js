@@ -13,16 +13,14 @@ export default function Home() {
 
   return (
     <>
-      <RightClickContext.Provider value={rightClick}>
         <ul
           onClick={rightClick.hideContext}
-          className="list-none pl-5 divide-slate-300 border-solid cursor-pointer w-1/4 border min-h-screen"
+          className="list-none pl-5 divide-slate-300 border-solid cursor-pointer w-1/4 border min-h-screen overflow-hidden" 
         >
           {data?.map((item) => (
             <Row key={item.id} data={item} />
           ))}
         </ul>
-      </RightClickContext.Provider>
     </>
   );
 }

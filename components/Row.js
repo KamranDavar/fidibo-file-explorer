@@ -48,40 +48,36 @@ export const Row = ({ data }) => {
           open &&
           rowData[0].files?.map((file) => <Row key={file.id} data={file} />)}
       </ul>
-      {context && (
+      {context && isDirectory && (
         <div
           style={{ top: xYPosistion.y, left: xYPosistion.x }}
           className="fixed bg-slate-100 p-2 divide-y divide-slate-200 divide-solid cursor-pointer"
         >
           {console.log("data", data)}
-          {isDirectory && (
-            <>
-              <div
-                className="hover:bg-slate-200"
-                onClick={(e) => {
-                  setShowForm(true);
-                  setMode("create");
-                  hideContext();
-                  setIsNewFileDir(false);
-                }}
-              >
-                New File
-              </div>
-              <div
-                className="hover:bg-slate-200"
-                onClick={(e) => {
-                  setShowForm(true);
-                  setMode("create");
-                  hideContext();
-                  setIsNewFileDir(true);
-                }}
-              >
-                New Directory
-              </div>
-            </>
-          )}
-          <div className="hover:bg-slate-200">Rename</div>
-          <div className="hover:bg-slate-200">Delete</div>
+          <div
+            className="hover:bg-slate-200"
+            onClick={(e) => {
+              setShowForm(true);
+              setMode("create");
+              hideContext();
+              setIsNewFileDir(false);
+            }}
+          >
+            New File
+          </div>
+          <div
+            className="hover:bg-slate-200"
+            onClick={(e) => {
+              setShowForm(true);
+              setMode("create");
+              hideContext();
+              setIsNewFileDir(true);
+            }}
+          >
+            New Directory
+          </div>
+          {/* <div className="hover:bg-slate-200">Rename</div>
+          <div className="hover:bg-slate-200">Delete</div> */}
         </div>
       )}
     </li>

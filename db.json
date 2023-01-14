@@ -3,25 +3,13 @@
     {
       "id": "1",
       "isDirectory": true,
-      "name": "file1",
+      "name": "Project",
       "fileId": ""
     },
     {
       "id": "2",
       "isDirectory": true,
-      "name": "file2",
-      "fileId": "1"
-    },
-    {
-      "id": "3",
-      "isDirectory": true,
-      "name": "file3",
-      "fileId": ""
-    },
-    {
-      "id": "4",
-      "isDirectory": false,
-      "name": "hello.txt",
+      "name": "src",
       "fileId": "1"
     },
     {
@@ -67,38 +55,28 @@
       "id": "MQCkf7S"
     },
     {
-      "name": "hi.js",
-      "id": "XHFZZM-"
-    },
-    {
-      "name": "ggiii.js",
-      "id": "Sl9-R6h"
-    },
-    {
-      "name": "gjtgjdjdf",
-      "id": "j4QZ2Me"
-    },
-    {
-      "name": "ygulglyl.js",
-      "id": "9SUDhmC"
-    },
-    {
-      "name": "file11.",
+      "name": "public",
       "isDirectory": true,
       "fileId": "1",
       "id": "bDSaMjP"
     },
     {
-      "name": "hi123.js",
+      "name": "images",
       "isDirectory": true,
-      "fileId": "1",
-      "id": "nnAPkch"
+      "fileId": "bDSaMjP",
+      "id": "d_QrGKx"
     },
     {
-      "name": "biaBaghalam.js",
+      "name": "styles",
       "isDirectory": true,
-      "fileId": "2",
-      "id": "i21la1I"
+      "fileId": "bDSaMjP",
+      "id": "3gDiu27"
+    },
+    {
+      "name": "fonts",
+      "isDirectory": true,
+      "fileId": "bDSaMjP",
+      "id": "2P9Tcpc"
     }
   ]
 }

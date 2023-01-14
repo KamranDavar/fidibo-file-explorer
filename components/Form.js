@@ -1,9 +1,16 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useAddFiles } from "../logics/hooks/useAddFiles";
 
-const Form = ({ mode,name,setShowForm }) => {
+const Form = ({ mode,name,setShowForm,fileId, isDirectory }) => {
+  const createFile= useAddFiles()
+
   const { register, handleSubmit, watch, formState } = useForm();
   const onSubmit = (data) =>{ console.log(data)
+    data.isDirectory=isDirectory
+    data.fileId=fileId
+    console.log("dataaaa", data)
+    createFile.mutate(data)
     setShowForm(false)
 };
 
@@ -11,7 +18,7 @@ const Form = ({ mode,name,setShowForm }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='inline-block grow'>
-      <input defaultValue={name} {...register("name")} />
+      <input {...register("name")} />
     </form>
   );
 };

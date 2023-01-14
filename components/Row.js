@@ -7,15 +7,15 @@ import { useGetFiles } from "../logics/hooks/useGetFiles";
 import Form from "./Form";
 import useRightClick from "../logics/hooks/useRightClick";
 import { Icon } from "./Icon";
+import { useAddFiles } from "../logics/hooks/useAddFiles";
 
 export const Row = ({ data }) => {
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [isNewFileDir, setIsNewFileDir] = useState();
-  const { showNav, context, xYPosistion, isDirectory, hideContext } = useRightClick();
-  // const { showNav, context, xYPosistion, isDirectory } =
-  //   useContext(RightClickContext);
+  const { showNav, context, xYPosistion, isDirectory, hideContext } =
+    useRightClick();
   const { data: rowData } = useGetFiles(data.id);
 
   return (
@@ -25,15 +25,23 @@ export const Row = ({ data }) => {
         onContextMenu={(e) => showNav(e, data.isDirectory)}
         className="flex items-center"
       >
-        <span><Icon isDir={data.isDirectory} open={open} /> </span>
-
+        <span>
+          <Icon isDir={data.isDirectory} open={open} />{" "}
+        </span>
         {data.name}
       </div>
 
-      {mode === "create" && showForm && (<div className="flex">
-      <Icon isDir={isNewFileDir} />
-        <Form mode={mode} name={data.name} setShowForm={setShowForm} />
-      </div>
+      {mode === "create" && showForm && (
+        <div className="flex">
+          <Icon isDir={isNewFileDir} />
+          <Form
+            mode={mode}
+            name={data.name}
+            setShowForm={setShowForm}
+            isDirectory={isDirectory}
+            fileId={data.id}
+          />
+        </div>
       )}
       <ul className="pl-5 ml-2 border-l divide-slate-300 border-solid">
         {data.isDirectory &&
@@ -54,7 +62,7 @@ export const Row = ({ data }) => {
                   setShowForm(true);
                   setMode("create");
                   hideContext();
-                  setIsNewFileDir(true)
+                  setIsNewFileDir(false);
                 }}
               >
                 New File
@@ -65,7 +73,7 @@ export const Row = ({ data }) => {
                   setShowForm(true);
                   setMode("create");
                   hideContext();
-                  setIsNewFileDir(false)
+                  setIsNewFileDir(true);
                 }}
               >
                 New Directory

@@ -9,7 +9,6 @@ const Form = ({ mode,name,setShowForm,fileId, isDirectory }) => {
   const onSubmit = (data) =>{ console.log(data)
     data.isDirectory=isDirectory
     data.fileId=fileId
-    console.log("dataaaa", data)
     createFile.mutate(data)
     setShowForm(false)
 };

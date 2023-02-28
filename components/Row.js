@@ -38,7 +38,7 @@ export const Row = ({ data }) => {
             mode={mode}
             name={data.name}
             setShowForm={setShowForm}
-            isDirectory={isDirectory}
+            isDirectory={isNewFileDir}
             fileId={data.id}
           />
         </div>
@@ -53,7 +53,6 @@ export const Row = ({ data }) => {
           style={{ top: xYPosistion.y, left: xYPosistion.x }}
           className="fixed bg-slate-100 p-2 divide-y divide-slate-200 divide-solid cursor-pointer"
         >
-          {console.log("data", data)}
           <div
             className="hover:bg-slate-200"
             onClick={(e) => {
